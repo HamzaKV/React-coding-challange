@@ -28,23 +28,17 @@ const useFetch: THook = (
     query
 ) => {
     const [state, dispatch] = useReducer(fetchReducer, initialState);
-    const [getFetchCount, setFetchCount] = useCacheState(0);
 
     const runFetch: TFetch = async (query) => {
         try {
             const json = await query();
             dispatch({ type: Status.success, payload: json });
-            setTimeout(() => {
-                dispatch({ type: Status.idle });
-            }, 500);
+            // setTimeout(() => {
+            //     dispatch({ type: Status.idle });
+            // }, 500);
         } catch (error) {
             Logger.error('useFetch Hook', error);
             const { status } = error;
-            if (status === 401) {
-                // Access Token Is Invalid
-                setFetchCount(getFetchCount() + 1);
-                return;
-            }
             dispatch({ type: Status.error, payload: error });
         }
     };

@@ -4,6 +4,19 @@ import { getImages } from '../constants/Queries';
 import { usePagination } from '../controls';
 
 const Home = () => {
+    const [images, runPagination] = useLogic();
+
+    return (
+        <MainTemplate pageTitle='Home' pageDescription='Home Page'>
+            <HomePage
+                images={images}
+                loadMore={runPagination}
+            />
+        </MainTemplate>
+    );
+};
+
+const useLogic: () => [any, any] = () => {
     const [images, setImages] = useState<
         {
             url: string;
@@ -18,6 +31,11 @@ const Home = () => {
     const [fetchStatus, fetchData, _, runFetch, count] = usePagination(
         async () => await getImages(count + 1)
     );
+
+    const runPagination = async () => {
+        console.log('run');
+        await runFetch(async () => await getImages(count + 1));
+    };
 
     useEffect(() => {
         if (fetchStatus === 'success') {
@@ -37,16 +55,7 @@ const Home = () => {
         }
     }, [fetchStatus]);
 
-    return (
-        <MainTemplate pageTitle='Home' pageDescription='Home Page'>
-            <HomePage
-                images={images}
-                loadMore={() =>
-                    runFetch(async () => await getImages(count + 1))
-                }
-            />
-        </MainTemplate>
-    );
+    return [images, runPagination];
 };
 
 export default Home;

@@ -36,6 +36,7 @@ const HomePage = ({ images, loadMore }: IProps) => {
             <InfiniteScroll loadMore={loadMore}>
                 {Utils.validArray(images) ? (
                     <Grid
+                        cols={3}
                         items={images}
                         Component={(image: TImage) => <ImageContainer
                             src={image.url}
