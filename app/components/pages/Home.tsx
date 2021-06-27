@@ -27,7 +27,7 @@ export interface IProps {
 
 const HomePage = ({ images, loadMore }: IProps) => {
     return (
-        <Page>
+        <Page style={{ paddingBottom: 150 }}>
             <Section style={{ margin: '25px 0' }}>
                 <Text type='t4' responsive>
                     Image Gallery
