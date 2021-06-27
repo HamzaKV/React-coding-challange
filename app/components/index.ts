@@ -27,6 +27,7 @@ export { default as Link } from './molecules/Link';
 export { default as Progress } from './molecules/Progress';
 
 export { default as Modal } from './compounds/Modal';
+export { default as Grid } from './compounds/Grid';
 
 export { default as Header } from './organisms/Header';
 export { default as ImageContainer } from './organisms/ImageContainer';
@@ -63,5 +64,6 @@ export type { IProps as LinkProps } from './molecules/Link';
 export type { IProps as ProgressProps } from './molecules/Progress';
 
 export type { IProps as ModalProps } from './compounds/Modal';
+export type { IProps as GridProps } from './compounds/Grid';
 
 export type { IProps as MainTemplateProps } from './templates/Main';

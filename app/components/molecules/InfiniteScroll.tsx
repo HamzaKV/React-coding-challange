@@ -68,7 +68,7 @@ const InfiniteScroll = ({ children, loadMore, maxHeight }: IProps) => {
             <div
                 ref={setElement}
                 style={{
-                    height: 150,
+                    height: 200,
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',

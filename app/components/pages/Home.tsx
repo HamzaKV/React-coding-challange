@@ -5,6 +5,7 @@ import {
     InfiniteScroll,
     ImageContainer,
     InfiniteScrollProps,
+    Grid
 } from '../';
 import Assets from '../../constants/Assets';
 import Utils from '../../constants/Utils';
@@ -34,9 +35,9 @@ const HomePage = ({ images, loadMore }: IProps) => {
             </Section>
             <InfiniteScroll loadMore={loadMore}>
                 {Utils.validArray(images) ? (
-                    images.map((image, key) => (
-                        <ImageContainer
-                            key={key}
+                    <Grid
+                        items={images}
+                        Component={(image: TImage) => <ImageContainer
                             src={image.url}
                             alt={image.alt}
                             likes={image.likes}
@@ -44,9 +45,8 @@ const HomePage = ({ images, loadMore }: IProps) => {
                             authorUrl={image.authorUrl}
                             description={image.description}
                             tagLine={image.tagLine}
-                        /> 
-                        // <Text key={key} type='t8'>{key}</Text>
-                    ))
+                        /> }
+                    />
                 ) : (
                     <ImageContainer
                         src={Assets.testImage}

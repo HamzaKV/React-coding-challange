@@ -25,12 +25,10 @@ const ImageContainer: FC<IProps> = ({
             <Container
                 style={{
                     cursor: 'pointer',
-                    width: 'fit-content',
-                    height: 'fit-content',
                 }}
                 onClick={() => setOpen((prev) => !prev)}
             >
-                <Image src={src} alt={alt} width='50%' height='auto' />
+                <Image src={src} alt={alt} width='100%' height='auto' />
             </Container>
             <Modal open={open} setOpen={setOpen}>
                 <Image src={src} alt={alt} width='100%' height='auto' />
