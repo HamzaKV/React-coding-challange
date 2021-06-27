@@ -45,6 +45,12 @@ const InfiniteScroll = ({ children, loadMore, maxHeight }: IProps) => {
                 // }, 1000);
             }
         })();
+        // if (loading) {
+        //     loadMore();
+        //     setTimeout(() => {
+        //         setLoading(false);
+        //     }, 1000);
+        // }
     }, [loading]);
 
     useEffect(() => {

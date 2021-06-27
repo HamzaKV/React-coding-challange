@@ -16,6 +16,7 @@ const usePagination: THook = (query) => {
     const [status, data, error, runFetch] = useFetch(query);
 
     useEffect(() => {
+        // console.log('fetch status', status);
         if (status === 'success') setCount((prev) => prev + 1);
     }, [status]);
 

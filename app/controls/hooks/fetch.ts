@@ -33,12 +33,11 @@ const useFetch: THook = (
         try {
             const json = await query();
             dispatch({ type: Status.success, payload: json });
-            // setTimeout(() => {
-            //     dispatch({ type: Status.idle });
-            // }, 500);
+            setTimeout(() => {
+                dispatch({ type: Status.idle });
+            }, 500);
         } catch (error) {
             Logger.error('useFetch Hook', error);
-            const { status } = error;
             dispatch({ type: Status.error, payload: error });
         }
     };
